@@ -1,4 +1,4 @@
-package com.gmail.igorvodinov;
+package com.gmail.igorvodinov.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
