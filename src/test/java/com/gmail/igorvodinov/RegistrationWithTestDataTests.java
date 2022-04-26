@@ -10,8 +10,12 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.gmail.igorvodinov.TestData.userEmail;
 
-public class RegistrationTests {
+public class RegistrationWithTestDataTests {
+
+    String firstName = "Alex",
+            lastName = "Egorov";
 
     @BeforeAll
     static void BrowserSize() {
@@ -20,12 +24,13 @@ public class RegistrationTests {
 
     @Test
     void fillFormTest() {
+
         open("https://demoqa.com/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Registration Form"));
 
-        $("#firstName").setValue("Alex");
-        $("#lastName").setValue("Egorov");
-        $("#userEmail").setValue("alex@egorov.com");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(userEmail);
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("1231231231");
 
@@ -52,7 +57,7 @@ public class RegistrationTests {
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").$(byText("Student Name"))
-                .parent().shouldHave(text("Alex Egorov"));
+                .parent().shouldHave(text(firstName + " " +lastName));
 
     }
 }
