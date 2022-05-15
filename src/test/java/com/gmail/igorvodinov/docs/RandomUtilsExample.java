@@ -24,5 +24,4 @@ public class RandomUtilsExample {
         String randomEmail = getRandomEmail();
         System.out.println(randomEmail);
     }
-    }
 }
