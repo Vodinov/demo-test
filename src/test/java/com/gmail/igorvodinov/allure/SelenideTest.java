@@ -1,6 +1,7 @@
 package com.gmail.igorvodinov.allure;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import org.junit.jupiter.api.Test;
 
 

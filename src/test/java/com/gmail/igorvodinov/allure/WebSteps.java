@@ -1,7 +1,11 @@
 package com.gmail.igorvodinov.allure;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
+
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
@@ -37,6 +41,8 @@ public class WebSteps {
     public void shouldSeeIssueWithNumber(int number) {
         $(withText("#" + number)).should(Condition.visible);
     }
-
-
+    @Attachment(value = "Screenshot", type = "text/html", fileExtension = "html")
+    public byte[] attachPageSource() {
+        return WebDriverRunner.source().getBytes(StandardCharsets.UTF_8);
+    }
 }
